@@ -38,8 +38,11 @@
 
         function SubmitText() {
           if(input.value) {
-            var dateFull = date.getMonth()+1+'/'+date.getDate()+'/'+date.getFullYear();
-            socket.emit("chat message 3", { name: Name, message: input.value, date: dateFull });
+            let msg = input.value;
+            var date =  new Date();
+            var dateFull = date.getMonth()+1+'/'+date.getDate()+'/'+date.getFullYear()+' at '+date.getHours()+':'+date.getMinutes();
+            msg = msg.replace(/:skull:/g, '💀').replace(/:sob:/g, '😭').replace(/:moyai:/g, '🗿').replace(/:rage:/g, '😡').replace(/:angry:/g, '😠').replace(/:nerd:/g, '🤓').replace(/:clown:/g, '🤡').replace(/:up:/g, '👍').replace(/:down:/g, '👎');
+            socket.emit("chat message 3", { name: Name, message: msg, date: dateFull });
             input.value = '';
           }
         }
