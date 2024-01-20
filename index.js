@@ -14,7 +14,7 @@ app.get('/chat', (req, res) => {
   res.sendFile(__dirname + "/chat/index.html");
 });
 
-app.get('/chat/schoo123', (req, res) => {
+app.get('/chat/school123', (req, res) => {
   fs.readFile(__dirname + '/chat/1.html', (err, data) => {
     if (err) throw err;
     res.write(data);
